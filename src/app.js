@@ -34,6 +34,8 @@ const userRoutes = require('./routes/user.routes')
 const productRoutes = require('./routes/product.routes')
 const reviewRoutes = require('./routes/review.routes')
 const recommendationRoutes = require('./routes/recommendation.routes')
+const trainingRoutes = require('./routes/training.routes')
+const exerciseRoutes = require('./routes/exercise.routes')
 
 const errors = require('./errors')
 
@@ -41,14 +43,17 @@ app.use('/user', userRoutes)
 app.use('/product', productRoutes)
 app.use('/', reviewRoutes)
 app.use('/', recommendationRoutes)
+// app.use('/exercise', exerciseRoutes)
+// app.use('/training', trainingRoutes)
+// app.user('/trainingSchedule', trainingScheduleRoutes)
 
 // catch all not found response
-app.use('*', function(_, res) {
+app.use('*', function (_, res) {
     res.status(404).end()
 })
 
 // error responses
-app.use('*', function(err, req, res, next) {
+app.use('*', function (err, req, res, next) {
     console.error(`${err.name}: ${err.message}`)
     // console.error(err)
     next(err)
@@ -56,7 +61,7 @@ app.use('*', function(err, req, res, next) {
 
 app.use('*', errors.handlers)
 
-app.use('*', function(err, req, res, next) {
+app.use('*', function (err, req, res, next) {
     res.status(500).json({
         message: 'something really unexpected happened'
     })
