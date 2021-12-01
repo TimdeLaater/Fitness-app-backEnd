@@ -30,6 +30,7 @@ const ExerciseSchema = new Schema({
         ref: 'user'
     }
 })
-UserSchema.plugin(require('mongoose-autopopulate'));
 
 
+
+module.exports = getModel('Exercise', ExerciseSchema)

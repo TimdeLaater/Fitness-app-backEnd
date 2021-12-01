@@ -43,7 +43,7 @@ app.use('/user', userRoutes)
 app.use('/product', productRoutes)
 app.use('/', reviewRoutes)
 app.use('/', recommendationRoutes)
-// app.use('/exercise', exerciseRoutes)
+app.use('/exercise', exerciseRoutes)
 // app.use('/training', trainingRoutes)
 // app.user('/trainingSchedule', trainingScheduleRoutes)
 
