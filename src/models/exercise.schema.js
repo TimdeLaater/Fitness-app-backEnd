@@ -33,4 +33,4 @@ const ExerciseSchema = new Schema({
 
 
 
-module.exports = ExerciseSchema
+module.exports = getModel('Exercise', ExerciseSchema)
