@@ -1,11 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const Exercise = require('../models/exercise.schema')() // note we need to call the model caching function
-
-const CrudController = require('../controllers/crud')
-
-const ExerciseCrudController = new CrudController(Exercise)
+const Exercise = require('../models/exercise.schema')()// note we need to call the model caching function
+const ExerciseController = require('../controllers/crud')
+const ExerciseCrudController = new ExerciseController(Exercise)
 
 
 // create a user

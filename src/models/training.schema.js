@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const ExerciseSchema = require('./exercise.schema');
+const Exercise = require('./exercise.schema');
 const Schema = mongoose.Schema;
 
 
@@ -19,30 +19,52 @@ const TrainingSchema = new Schema({
 
     // finished: boolean
     finished: {
-        type: Boolean
+        type: Boolean,
+        default: false
+
     },
-    excercises: {
-        type: [ExerciseSchema],
-        default: []
-    }
+    excercises: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Exercise'
+    }]
 }, {
     // include virtuals when serializing the schema to an object or JSON
     toObject: { virtuals: true },
     toJSON: { virtuals: true },
 });
-TrainingSchema.virtual('totalCal').get(function () {
-    // if there are no reviews we give back a message
-    if (this.excercises.length === 0) {
-        return "no exercises"
-    } else {
-        // computes the toal calories
-        let sum = 0
-        for (let exercise of this.excercises) {
-            sum += exercise.calories
-        }
-        return sum
-    }
-})
+// TransactionSchema.method('getNotebook', function (cb) {
+//     Notebook.findById(this.notebookId, function (err, notebook) {
+//         cb(notebook);
+//     })
+// });
+
+// TrainingSchema.virtual('totalCal', function (cb) {
+//     if (this.excercises.length === 0) {
+//         cb("no Exercises")
+//     } else {
+//         let sum = 0
+//         for (let exerciseId of this.excercises) {
+//             let exercise = Exercise.findById(exerciseId);
+//             sum += exercise.calories
+//         }
+//         cd(sum)
+//     }
+// })
+
+// TrainingSchema.virtual('totalCal').get(function () {
+//     // if there are no reviews we give back a message
+//     if (this.excercises.length === 0) {
+//         cb("no Exercises")
+//     } else {
+
+//         let sum = 0
+//         for (let exerciseId of this.excercises) {
+
+//             sum += exerciseId.calories
+//         }
+//         return sum
+//     }
+// })
 
 
 

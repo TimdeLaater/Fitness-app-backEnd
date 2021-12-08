@@ -36,7 +36,7 @@ const reviewRoutes = require('./routes/review.routes')
 const recommendationRoutes = require('./routes/recommendation.routes')
 const trainingRoutes = require('./routes/training.routes')
 const exerciseRoutes = require('./routes/exercise.routes')
-
+const trainingScheduleRoutes = require('./routes/trainingSchedule.routes')
 const errors = require('./errors')
 
 app.use('/user', userRoutes)
@@ -44,8 +44,8 @@ app.use('/product', productRoutes)
 app.use('/', reviewRoutes)
 app.use('/', recommendationRoutes)
 app.use('/exercise', exerciseRoutes)
-// app.use('/training', trainingRoutes)
-// app.user('/trainingSchedule', trainingScheduleRoutes)
+app.use('/training', trainingRoutes)
+app.use('/schedule', trainingScheduleRoutes)
 
 // catch all not found response
 app.use('*', function (_, res) {
