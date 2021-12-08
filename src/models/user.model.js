@@ -5,9 +5,13 @@ const getModel = require('./model_cache')
 
 const UserSchema = new Schema({
     // a user needs to have a name
-    name: {
+    firstname: {
         type: String,
-        required: [true, 'A user needs to have a name.'],
+        required: [true, 'A user needs to have a firstname.'],
+    },
+    lastname: {
+        type: String,
+        required: [true, 'A user needs to have a lastname.'],
     },
 
     // users email needs be a email
