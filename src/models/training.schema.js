@@ -21,10 +21,10 @@ const TrainingSchema = new Schema({
     finished: {
         type: Boolean
     },
-    excercises: {
-        type: [ExerciseSchema],
-        default: []
-    }
+    excercises: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Exercise'
+    }]
 }, {
     // include virtuals when serializing the schema to an object or JSON
     toObject: { virtuals: true },

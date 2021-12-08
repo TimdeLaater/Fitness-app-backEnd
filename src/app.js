@@ -44,8 +44,8 @@ app.use('/product', productRoutes)
 app.use('/', reviewRoutes)
 app.use('/', recommendationRoutes)
 app.use('/exercise', exerciseRoutes)
-// app.use('/training', trainingRoutes)
-// app.user('/trainingSchedule', trainingScheduleRoutes)
+app.use('/training', trainingRoutes)
+// app.use('/trainingSchedule', trainingScheduleRoutes)
 
 // catch all not found response
 app.use('*', function (_, res) {
